@@ -1,0 +1,224 @@
+
+*{
+    /*tamanho da margin*/
+    margin: 0;
+    /*tamanho do preechimento interno*/
+    padding: 0;
+    /*manter a caixa do mesmo tamanho e fazer o preenchimento se virar para caber*/
+    box-sizing: border-box;
+}
+:root{
+    --text-color: white;
+    --bg-url: url(./assets/bg-mobile.jpg);
+    --stroke-color: rgba(255, 255, 255, 0.5);
+    --surface-color: rgba(255, 255, 255, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.02);
+    --heighlight-color: rgba(255, 255, 255, 0.2);
+    --switch-bg: url(./assets/moon-stars.svg);
+}
+
+.light{
+    --text-color: black;
+    --bg-url: url(./assets/bg-mobile-light.jpg);
+    --stroke-color: rgba(0, 0, 0, 0.5);
+    --surface-color: rgba(0, 0, 0, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.02);
+    --heighlight-color: rgba(0, 0, 0, 0.1);
+    --switch-bg: url(./assets/sun.svg);
+}
+
+body *{
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+}
+
+body{
+    /*background: cor imagem repeat position/size */
+    background: var(--bg-url) no-repeat top center/cover;
+    height: 100vh;
+}
+
+#container{
+    width: 100%;
+    max-width: 588px;
+    /*nao precisa setar a altura, para as coisas ficarem fluidas
+    height: 712px;
+    border: 1px solid red;*/
+    margin: 56px auto 0px;
+
+    padding: 0 24px;
+}
+/*profiler*/
+#profile{
+    /*so para ver como as coisas andao
+    border: 1px solid blue;*/
+    text-align: center;
+    padding: 24px;
+}
+
+#profile img{
+    /*nao ira funcionar o text-align se o filho for display block pois display block ocupa toda a linha*/
+    /*display: block;*/
+     width: 112px;
+     /*para ver as coisas interessantes
+     border: 1px solid purple;*/
+}
+#profile p{
+    /*para ver as grades dos display
+    border: 1px solid orange;*/
+    /*espessura da fonte*/
+    font-weight: 500;
+    /*tamanho da donte*/
+    font-size: 16px;
+    /*altura da linha*/
+    line-height: 24px;
+    margin-top: 8px;
+}
+
+/*switch*/
+#switch{
+    /*apenas para ser didato usa essa borda
+    border: 1px solid purple;*/
+
+    position: relative;
+    width: 64px;
+    margin: 4px auto;
+    cursor: pointer;
+}
+#switch button{
+    width: 32px;
+    height: 32px;
+    background: white var(--switch-bg) no-repeat center;
+    border: 0;
+    border-radius: 50%;
+
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 1;
+    transform: translateY(-50%);
+    cursor: pointer;
+
+    animation: slide-back 0.3s;
+}
+
+.light #switch button{
+    animation: slide-in 0.3s forwards;
+    cursor: pointer;
+}
+#switch button:hover{
+    outline: 8px solid var(--heighlight-color);
+}
+#switch span{
+    display: block;
+    width: 64px;
+    height: 24px;
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 9999px;
+}
+
+/* lista de links*/
+ul{
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px 0;
+}
+/*display block ocupa toda a linha
+ul li{
+    border: 1px solid red;
+}*/
+/*sisplay inline ocupa so o seu tamanho*/
+ul li a{
+    /*
+    border: 1px solid green;
+    somente para ver o tamanho da caixa porem foi substituido mais em baixo */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 16px 24px;
+
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    border-radius: 8px;
+
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+
+    text-decoration: none;
+    font-weight: 500;
+
+    transition: 0.3s;
+}
+ul li a:hover{
+    background: var(--surface-color-hover);
+    border: 1.5px solid var(--text-color);
+}
+#social-midia{
+    /*border: 1px solid blue;*/
+    display: flex;
+    justify-content: center;
+
+    padding: 24px 0;
+    font-size: 24px;
+}
+#social-midia a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    transition: 0.3;
+    border-radius: 50%;
+}
+#social-midia a:hover{
+    background:var(--heighlight-color);
+    
+}
+footer{
+    /*margin add de gaiato*/
+    margin: 24px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 0;
+    /*border: 1px solid yellow;*/
+    font-size: 14px;
+}
+/* caso eu queira remover a underline do link
+footer a{
+    text-decoration: none;
+}
+*/
+/*fazer com que alguma coisa seja responsiva*/
+/*media queries*/
+@media (min-width: 700px){
+    :root{
+        --bg-url: url(./assets/bg-desktop.jpg);
+    }
+    .light{
+        --bg-url: url(./assets/bg-desktop-light.jpg);
+    }
+}
+@keyframes slide-in{
+    from{
+        left: 0;
+    }
+    to{
+        left: 50%;
+    }
+}
+@keyframes slide-back{
+    from{
+        left: 50%;
+    }
+    to{
+        left: 0;
+    }
+}

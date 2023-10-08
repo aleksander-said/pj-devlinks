@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="light">
+<head>
+    <!--referencia das fontes-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- referencia de icones bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!--conteudo basico do HTML-->  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevLinks</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+        <div id="profile">
+            <img src="./assets/avatar-light.png" alt="Foto de Mayke Brito sorrindo, usando óculos e camisa preta, barba e fundo amarelo.">
+            <p>@maykebrito</p>
+        </div>
+        <div id="switch" onclick="toggleMode()">
+            <button>
+                
+            </button>
+            <span>
+                
+            </span>
+        </div>
+        <ul>
+            <li>
+                <a href="#">Inscrever-se</a>
+            </li>
+            <li>
+                <a href="#">Baixar</a>
+            </li>
+            <li>
+                <a href="#">Portifolio</a>
+            </li>
+            <li>
+                <!--  target="_blank"  faz com que o usuario nao feiche a aba ao clicar em um link-->
+                <a href="https://rocketseat.com.br/explorer" target="_blank">Explorer</a>
+            </li>            
+        </ul>
+        <div id="social-midia">
+            <a href="#" target="_blank">
+                <ion-icon name="logo-github"></ion-icon>
+            </a>
+            <a href="#" target="_blank">
+                <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+            <a href="#">
+                <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+            <a href="#" target="_blank">
+                <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+        </div>
+        <footer> 
+            <p>
+                feito com <i class="bi bi-heart-fill"></i> pela <a href="#"> <b>rocketseat</b></a>
+            </p>
+        </footer>
+    </div>
+    <!--referencia dos icones do ionicons-->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <script>
+        function toggleMode(){
+            //um popup
+            //alert('oi')
+
+            //selecao do documento html e o elemento html a div principal 
+            const html = document.documentElement
+
+            //add e remocao da class uma forma mais esplicada
+            //if (html.classList.contains('light')){
+            //    html.classList.remove('light')
+            //} else{
+            //    html.classList.add('light')
+            //}
+
+            //uma forma mais agil
+            html.classList.toggle('light')
+            //pegar a tag img
+            const img = document.querySelector('#profile img')
+            //substituir a imagem
+            if (html.classList.contains("light")){
+                // se houver light mode, add imagem light
+                img.setAttribute("src", "./assets/avatar-light.png")
+            } else{
+                //se houver sem light, manter a imagem normal
+                img.setAttribute("src", "./assets/avatar.png")
+            }
+        }
+    </script>
+</body>
+</html>
