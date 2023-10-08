@@ -59,9 +59,15 @@ body{
 #profile img{
     /*nao ira funcionar o text-align se o filho for display block pois display block ocupa toda a linha*/
     /*display: block;*/
-     width: 112px;
+    width: 112px;
      /*para ver as coisas interessantes
      border: 1px solid purple;*/
+    -webkit-transition: -webkit-transform .5s ease;
+    transition: transform .5s ease;
+}
+#profile img:hover{
+    -webkit-transform: scale(2.1);
+    transform: scale(2.1);
 }
 #profile p{
     /*para ver as grades dos display
