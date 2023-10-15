@@ -68,6 +68,8 @@ body{
 #profile img:hover{
     -webkit-transform: scale(2.1);
     transform: scale(2.1);
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
 }
 #profile p{
     /*para ver as grades dos display
